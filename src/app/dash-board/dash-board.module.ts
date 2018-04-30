@@ -43,12 +43,12 @@ import {
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashBoardComponent } from './dash-board.component';
-import { NavMenuComponent } from './../navmenu/navmenu.component';
+import { MenuComponent } from './../menu/menu.component';
 
 @NgModule({
     declarations: [
       DashBoardComponent,
-      NavMenuComponent
+      MenuComponent
     ],
     imports: [
       BrowserModule,

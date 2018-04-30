@@ -42,35 +42,33 @@ import {
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing-module';
-import { DashBoardModule } from './dash-board/dash-board.module'
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { LoginService } from './Service/login.service';
+import { DashBoardComponent } from './dash-board.component';
+import { NavMenuComponent } from './../navmenu/navmenu.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    MatCardModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    FormsModule,
-    HttpModule,
-    DashBoardModule,
-    AppRoutingModule
-  ],
-  providers: [ LoginService ],
-  bootstrap: [ AppComponent ]
-})
-
-export class AppModule {
-
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule);
+    declarations: [
+      DashBoardComponent,
+      NavMenuComponent
+    ],
+    imports: [
+      BrowserModule,
+      FormsModule,
+      BrowserModule,
+      MatCardModule,
+      BrowserAnimationsModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatIconModule,
+      FormsModule,
+      HttpModule
+    ],
+    providers: [],
+    bootstrap: [DashBoardComponent],
+    exports:[
+      DashBoardComponent
+    ]
+  })
+  
+  export class DashBoardModule {
+  
+  }

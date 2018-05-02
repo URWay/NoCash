@@ -1,17 +1,17 @@
 <div class="page-center col-12">
   <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-      <form class="col-6">
+      <form #f="ngForm" (ngSubmit)="onSubmit(UserName.value, Password.value)" method="post" class="col-6">
         <div class="text-center">
           <img src="../assets/img/logo.png" style="margin-top: -10px; margin-bottom: 20px;">
         </div>
         
         <mat-form-field class="login-full-width">
-          <input matInput placeholder="Usuário" name="txtUsuario" id="txtUsuario">
+          <input matInput #UserName ngModel name="UserName" placeholder="Usuário" required>
         </mat-form-field>
         
         <mat-form-field class="login-full-width">
-          <input matInput placeholder="Senha" [type]="hide ? 'text' : 'password'" name="txtSenha" id="txtSenha">
+          <input matInput [type]="hide ? 'text' : 'password'" #Password ngModel name="Password" placeholder="Senha" required>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
 

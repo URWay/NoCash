@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
-import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 
 const appRoutes: Routes = [
     { path: 'painel', component: DashBoardComponent},
-    { path: '', component: LoginComponent}
+    { path: '', component: UserComponent}
 ]
 
 @NgModule({

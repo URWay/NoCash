@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 import {
   MatAutocompleteModule,
@@ -45,13 +46,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing-module';
 import { DashBoardModule } from './dash-board/dash-board.module'
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { LoginService } from './Service/login.service';
+import { UserComponent } from './user/user.component';
+import { UserService } from './shared/user.service';
+import { AuthGuard } from './auth/auth.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -61,11 +65,18 @@ import { LoginService } from './Service/login.service';
     MatInputModule,
     MatIconModule,
     FormsModule,
+    HttpClientModule,
     HttpModule,
     DashBoardModule,
     AppRoutingModule
   ],
-  providers: [ LoginService ],
+  providers: [UserService,AuthGuard,
+    ,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }],
   bootstrap: [ AppComponent ]
 })
 

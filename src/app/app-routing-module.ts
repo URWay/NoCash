@@ -9,10 +9,10 @@ import { UserComponent } from './user/user.component';
 const appRoutes: Routes = [
     { path: 'painel', component: DashBoardComponent},
     { path: '', component: UserComponent}
-]
+];
 
 @NgModule({
-    //imports: [RouterModule.forRoot(appRoutes, {useHash: true})],
+    // imports: [RouterModule.forRoot(appRoutes, {useHash: true})],
     imports: [RouterModule.forRoot(appRoutes)],
     exports: [RouterModule]
 })

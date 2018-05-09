@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../shared/user.service';
+import { AutenticacaoService } from '../service/autenticacao/autenticacao.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
@@ -11,9 +11,9 @@ import swal from 'sweetalert';
 })
 
 export class UserComponent implements OnInit {
-  isLoginError : boolean = false;
-  constructor(private userService: UserService, private router: Router) {
-        
+
+  constructor(private autenticacaoService: AutenticacaoService, private router: Router) {
+
   }
 
   ngOnInit() {
@@ -25,13 +25,12 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  onSubmit(userName, password){
-    this.userService.userAuthentication(userName, password).subscribe((data : any)=>{
-      localStorage.setItem('userToken', data.acess_token);
-      this.router.navigate(['/dash-board']);
+  onSubmit(userName, password) {
+    this.autenticacaoService.login(userName, password).subscribe((data: any) => {
+      console.log(data);
     },
-    (err : HttpErrorResponse)=>{
-      this.isLoginError = true;
+    (err: HttpErrorResponse) => {
+      console.log(err);
     });
 
   }

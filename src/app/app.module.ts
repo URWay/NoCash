@@ -44,18 +44,18 @@ import {
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing-module';
-import { DashBoardModule } from './dash-board/dash-board.module'
+import { DashBoardModule } from './dash-board/dash-board.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { UserService } from './shared/user.service';
-import { AuthGuard } from './auth/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './auth/auth.interceptor';
+import { LoginComponent } from './ui/macro/login/login.component';
+import { AutenticacaoService } from './service/autenticacao/autenticacao.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -70,18 +70,12 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     DashBoardModule,
     AppRoutingModule
   ],
-  providers: [UserService,AuthGuard,
-    ,
-    {
-      provide : HTTP_INTERCEPTORS,
-      useClass : AuthInterceptor,
-      multi : true
-    }],
+  providers: [
+    AutenticacaoService
+  ],
   bootstrap: [ AppComponent ]
 })
 
 export class AppModule {
 
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule);

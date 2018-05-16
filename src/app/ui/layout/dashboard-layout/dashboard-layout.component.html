@@ -1,0 +1,48 @@
+<div class="main-container">
+  <mat-toolbar color="primary" class="main-toolbar" >
+    <mat-toolbar-row>
+      <span class="main-toolbar-title">
+        <button mat-icon-button (click)="sidenav.toggle()"><mat-icon >menu</mat-icon></button>
+        <h1 class="main-app-name">GIS</h1>
+      </span>
+
+      <span class="main-toolbar-spacer"></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menuToolbar" class="main-toolbar-icon">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menuToolbar="matMenu">
+        <button mat-menu-item [routerLink]="['/trocarSenha']">
+          <mat-icon>lock</mat-icon>
+          <span>Trocar Senha</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sair</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="main-sidenav-container" >
+    <mat-sidenav class="mat-elevation-z4" mode="side" #sidenav fixedTopGap="56" [(opened)]="sidebarOpened">
+      <mat-nav-list>
+          <a mat-list-item [routerLink]="['/cale']" [routerLinkActive]="['active-route']" ><mat-icon class="icone">event</mat-icon>Planejamento Horário</a>
+          <a mat-list-item [routerLink]="['/atividadesProfessores']" [routerLinkActive]="['active-route']" ><mat-icon class="icone">event_note</mat-icon>Atividades do Professor</a>
+          <a mat-list-item [routerLink]="['/gerenciarProfessores']" [routerLinkActive]="['active-route']" ><mat-icon class="icone">school</mat-icon>Gerenciamento de Professores</a>
+          <a mat-list-item [routerLink]="['/gerenciarUsuarios']" [routerLinkActive]="['active-route']" ><mat-icon class="icone">people</mat-icon>Gerenciamento de Usuários</a>
+          <a mat-list-item [routerLink]="['/planoensino']" [routerLinkActive]="['active-route']" ><mat-icon class="icone">chrome_reader_mode</mat-icon>Plano de Ensino</a>
+          <a mat-list-item [routerLink]="['/adicionarProfessorAtividade']" [routerLinkActive]="['active-route']" ><mat-icon class="icone">chrome_reader_mode</mat-icon>Adicionar Atividades</a>
+
+          
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="my-content-area">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>

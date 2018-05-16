@@ -13,11 +13,11 @@ export class AutenticacaoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(email: string, senha: string): Observable<any> {
-    if (email && senha) {
+  login(usuario: Usuario): Observable<any> {
+    if (usuario.email && usuario.senha) {
       const jsonCliente = {
-        'emailCliente' : email,
-        'senhaCliente' : senha
+        'emailCliente' : usuario.email,
+        'senhaCliente' : usuario.senha
       };
       return this.httpClient.post(environment.apiEndpoint +
         `clientes/login/`, JSON.stringify(jsonCliente),

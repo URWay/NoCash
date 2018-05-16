@@ -46,16 +46,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing-module';
 import { DashBoardModule } from './dash-board/dash-board.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './ui/macro/login/login.component';
 import { AutenticacaoService } from './service/autenticacao/autenticacao.service';
+import { HomeComponent } from './ui/macro/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

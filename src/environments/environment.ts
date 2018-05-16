@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'http://localhost:8080/Carteira-mvn/ws/',
+  apiEndpoint: 'http://localhost:8080/nocash/ws/',
 
   // 'http://carteiravirtualws.azurewebsites.net/nocash/ws/';
   // 'http://localhost:8080/ws/';

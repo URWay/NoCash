@@ -44,18 +44,23 @@ import {
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing-module';
-import { DashBoardModule } from './dash-board/dash-board.module';
-import { AppComponent } from './app.component';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginComponent } from './ui/macro/login/login.component';
 import { AutenticacaoService } from './service/autenticacao/autenticacao.service';
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './ui/macro/login/login.component';
 import { HomeComponent } from './ui/macro/home/home.component';
+import { DashboardLayoutComponent } from './ui/layout/dashboard-layout/dashboard-layout.component';
+import { NavbarComponent } from './ui/layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardLayoutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,6 @@ import { HomeComponent } from './ui/macro/home/home.component';
     FormsModule,
     HttpClientModule,
     HttpModule,
-    DashBoardModule,
     AppRoutingModule
   ],
   providers: [

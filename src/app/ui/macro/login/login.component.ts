@@ -30,11 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.autenticacaoService.login(this.usuario).subscribe((data: any) => {
+    this.router.navigate(['/painel']);
+    /*this.autenticacaoService.login(this.usuario).subscribe((data: any) => {
       console.log(data);
     },
     (err: any) => {
-    });
+    })*/
 
   }
 
